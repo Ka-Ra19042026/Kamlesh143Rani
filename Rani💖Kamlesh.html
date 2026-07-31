@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rani💖Kamlesh</title>
+  <style>
+    @font-face {
+      font-family: 'Edwardian Script ITC';
+      src: url('fonts/EdwardianScriptITC.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0;
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      font-family: cursive, sans-serif;
+    }
+
+
+    .sheet {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .sheet.in-view { opacity: 1; transform: translateY(0); }
+
+    h2 { margin: 20px 0; color: #d6336c; text-align: center; }
+
+    /* First page */
+    .title { font-family: 'Edwardian Script ITC', cursive; font-size: 6rem; color: #d6336c; }
+    .names { font-family: 'Edwardian Script ITC', cursive; font-size: 3.5rem; color: #1a237e; }
+    .flowers img { display: block; margin: 20px auto; max-width: 40%; }
+.heart {
+  color: #d6336c;
+  display: inline-block;
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.1); }
+}
+
+
+.scroll-up {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #d6336c;
+  font-size: 1rem;
+  animation: bounce 1.5s infinite;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  align-items: center; /* ensures arrow + text are centered */
+}
+.scroll-up .arrow {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+    @keyframes bounce {0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(-8px);} }
+
+    /* Second page */
+
+    .sticky-img { display:block; max-width:40%; max-height:40vh; margin:20px auto; opacity:0; transform:translateY(40px); transition:opacity 1s ease, transform 1s ease; }
+    .animated-text { font-size:2.5rem; max-width:80%; text-align:center; opacity:0; transform:translateY(40px); transition:opacity 1s ease, transform 1s ease; }
+
+    /* Butterflies */
+    .butterfly { position:absolute; font-size:2rem; opacity:0; animation:flap 0.6s infinite alternate; pointer-events:none; }
+    @keyframes flap { from{transform:scaleY(1);} to{transform:scaleY(0.8);} }
+    @keyframes flyUp {0%{transform:translate(0,0);opacity:0;}10%{opacity:1;}100%{transform:translate(-20vw,-120vh);opacity:0;} }
+    @keyframes flyRight {0%{transform:translate(0,0);opacity:0;}10%{opacity:1;}100%{transform:translate(40vw,-100vh);opacity:0;} }
+    @keyframes flyLeft {0%{transform:translate(0,0);opacity:0;}10%{opacity:1;}100%{transform:translate(-40vw,-100vh);opacity:0;} }
+
+
+
+    /* Game board */
+.popup .highlight {
+  color: #d6336c; /* loving red */
+}
+
+.title3 {
+  font-family: 'Edwardian Script ITC', cursive;
+  font-size: 3rem;
+  color: #d6336c;
+  margin-bottom: 10px;
+  font-weight: normal; /* removes bold, makes text realistic */
+}
+
+    #game-board { display:grid; grid-template-columns:repeat(3,100px); grid-template-rows:repeat(3,100px); gap:10px; margin:20px auto; }
+    .cell { background:#fff; border-radius:12px; display:flex; justify-content:center; align-items:center; font-size:2.5rem; cursor:pointer; transition:background 0.3s; }
+    .cell:hover { background:#ffe4ec; }
+    .cell.heart { color:#d6336c; }
+    .cell.cross { color:#000; }
+
+    /* Popup */
+/* Popup inside Sheet 3 */
+.sheet .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* other styles */
+}
+
+.sheet .glitter-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+}
+
+
+
+    .popup { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(255,255,255,0.95); border:2px solid #d6336c; border-radius:12px; padding:20px; text-align:center; font-family:'Edwardian Script ITC',cursive; font-size:2rem; z-index:100; animation:fadeIn 0.8s ease; }
+    .popup button { margin-top:15px; padding:10px 20px; background:#d6336c; color:#fff; border:none; border-radius:8px; font-size:1rem; cursor:pointer; }
+    @keyframes fadeIn { from{opacity:0;transform:translate(-50%,-60%);} to{opacity:1;transform:translate(-50%,-50%);} }
+
+    .glitter-bg { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:50; }
+    .sparkle { position:absolute; font-size:1.5rem; color:gold; animation:sparkleAnim 1s infinite alternate; }
+    @keyframes sparkleAnim { from{opacity:0.5;transform:scale(1);} to{opacity:1;transform:scale(1.3);} }
+
+
+    /* sheet 4 */
+.matched-img {
+  display: block;
+  max-width: 80%;   /* smaller size */
+  max-height: 35vh; /* keep within viewport */
+  margin: 20px auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.matched-text {
+  font-family: 'Times New Roman', Times, serif; /* use Times New Roman */
+  font-size: 5rem;
+  text-align: center;
+  color: #d6336c;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.sheet.in-view .matched-img,
+.sheet.in-view .matched-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.polaroid {
+  background: #fff;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+  max-width: 300px;
+  margin: 20px auto;
+  opacity: 0;
+  transform: translateY(40px) rotate(5deg); /* tilt slightly to the right */
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Caption inside image */
+.caption-inside {
+  font-size: 2.5rem;
+  border-radius: 6px;
+}
+
+.heartbeat-heart {
+  display: inline-block;
+  font-size: 3rem;   /* increase size */
+  color: #d6336c;
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.1); }
+}
+
+/* Animate into view */
+.sheet.in-view .polaroid {
+  opacity: 1;
+  transform: translateY(0) rotate(5deg); /* fade in with tilt */
+}
+
+
+
+/* Bee frame styling */
+/* Square container with shaded background */
+.bee-square {
+  width: 250px;
+  height: 250px;
+  margin: 40px auto 20px auto;
+  background: linear-gradient(145deg, #fff 60%, #f0e68c 100%);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.9) translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.bee-gif {
+  width: 90%;
+  height: auto;
+}
+
+.bee-caption {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #b5a200; /* dark lemon */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+
+.heartbeat-heart {
+  display: inline-block;
+  color: #d6336c;
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.1); }
+}
+
+/* Animate into view */
+.sheet.in-view .bee-square {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.sheet.in-view .bee-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* 7th sheet styling */
+
+.complete-me {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.portrait {
+  position: absolute;
+  text-align: center;
+}
+
+.portrait img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #d6336c;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.name {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.2rem;
+  color: #d6336c;
+  margin-top: 8px;
+}
+
+.portrait.rani {
+  top: 15px;
+  left: 40px;
+}
+
+.portrait.kamlesh {
+  bottom: 0px;
+  right: 40px;
+}
+
+/* Arrow line animation */
+.arrow-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.animated-line {
+  fill: none;
+  stroke: #ff3366;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 1000;   /* will be updated dynamically */
+  stroke-dashoffset: 1000;
+}
+
+/* Only animate when the class is added */
+.animate-line {
+  animation: drawLine 6s linear forwards;
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+
+.caption {
+  position: absolute;
+  bottom: -60px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Edwardian Script ITC', cursive;
+  font-size: 3rem;
+  color: #d6336c;
+  opacity: 0;
+  animation: fadeInText 2s ease forwards;
+  animation-delay: 4s; /* after line finishes */
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+/* Animate into view */
+.sheet.in-view .complete-me {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* sheet 8 old fam */
+.grow-old {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
+.grow-old-img {
+  max-width: 100%;
+}
+
+.grow-old-caption {
+  margin-top: 15px;
+  color: #808080;
+  font-size: 2.6rem;
+  font-family: cursive;
+}
+
+
+/* sheet 9 moon love */
+
+.moon-love {
+  position: relative;
+  text-align: center;
+  padding: 60px 20px;
+  background: radial-gradient(circle at 50% 30%, #111 0%, #000 100%);
+  min-height: 400px;
+}
+
+/* Crescent moon */
+.moon {
+  width: 80px;
+  height: 80px;
+  background: #ffff99;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  position: relative;
+  box-shadow: 0 0 20px #ffd633;
+}
+
+/* Caption text */
+.moon-caption {
+  font-size: 1.8rem;
+  font-family: cursive;
+  color: #fff;
+}
+.highlight {
+  color: #ffd633;
+}
+.fade-in {
+  animation: fadeIn 6s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* sheet 10 mwith love */
+
+.with-love {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.love-text {
+  font-family: 'Edwardian Script ITC';
+  font-size: 4rem;
+  color: #d6336c; /* romantic red */
+  margin-bottom: 10px;
+  font-weight: normal;   /* removes bold look */
+  animation: fadeInDown 2s ease forwards;
+}
+
+.name-text {
+  font-family: 'Edwardian Script ITC';
+  font-size: 3.5rem;
+  color: #003366; /* deep blue */
+  margin-bottom: 20px;
+  font-weight: normal;   /* removes bold look */
+  animation: fadeInUp 2s ease forwards;
+}
+
+.replay-btn {
+  background: #d6336c;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.replay-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.with-love.animate .love-text,
+.with-love.animate .name-text {
+  animation-play-state: running;
+}
+
+
+
+
+.scroll-up:hover {
+  color: #ff6699;          /* lighter pink on hover */
+}
+
+
+
+.animated-line2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+.animated-line2.active {
+  animation: drawHeart 3s linear forwards;
+}
+@keyframes drawHeart {
+  to { stroke-dashoffset: 0; }
+}
+
+  </style>
+</head>
+<body>
+
+
+
+
+  <!-- Sheet 1 -->
+  <section class="sheet" style="background:#ffe4ec;">
+    <div class="title">Just For</div>
+    <div class="title">You</div>
+<div class="names">Kamlesh <span class="heart">♥</span> Rani</div>
+    <div class="flowers"><img src="Images/final1st.png" alt="Flowers"></div>
+<div></div>
+<audio id="bg-music" loop>
+  <source src="Images/love.mp3" type="audio/mpeg">
+</audio>
+
+<div class="scroll-up" id="scroll-up-btn">
+  <span class="arrow">↑</span> 💖Click Here & ScrollUp💖
+</div>
+  </section>
+
+  <!-- Sheet 2 -->
+  <section class="sheet" style="background:#fff;">
+    <img src="Images/sticky.png" alt="My love" class="sticky-img">
+    <h2 class="animated-text">I'm Sticking with you</h2>
+    <h2 class="animated-text">forever and always</h2>
+  </section>
+
+  <!-- Sheet 3 (Game) -->
+  <section class="sheet" style="background:#fff0f5;">
+    <h3 class="title3">Let's play the love game</h2>
+    <div id="game-board">
+      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+      <div class="cell"></div><div class="cell"></div><div class="cell"></div>
+    </div>
+  </section>
+
+<!-- Sheet 4 (Matched with animation) -->
+<section class="sheet" style="background:#fff;">
+  <img src="Images/stick.png" alt="Matched" class="matched-img">
+  <h2 class="matched-text">I'm glad we matched!</h2>
+</section>
+
+
+<!-- Sheet 5 (Polaroid Just Us) -->
+<section class="sheet" style="background:#fff0f7;">
+  <div class="polaroid">
+    <div class="image-frame">
+      <img src="Images/ranime.jpeg" alt="Just Us" class="polaroid-img">
+      <div class="caption-inside">
+        Just Us <span class="heartbeat-heart">♥</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Sheet 6 (Bee GIF inside square) -->
+<section class="sheet" style="background:#fffacd;"> <!-- lemon background -->
+  <div class="bee-square">
+    <img src="Images/bee.gif" alt="We bee-long together" class="bee-gif">
+  </div>
+  <div class="bee-caption">
+    We bee‑Long Together <span class="heartbeat-heart">♥</span>
+  </div>
+</section>
+
+
+<!-- Sheet 7 (You Complete Me) -->
+<section class="sheet" style="background:#fff0f5;">
+  <div class="complete-me">
+    <div class="portrait rani">
+      <img src="Images/rani.jpeg" alt="Rani">
+      <div class="name">Rani</div>
+    </div>
+
+<svg class="arrow-svg" viewBox="0 0 600 400">
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" 
+            refX="12" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#ff3366"/>
+    </marker>
+  </defs>
+  
+  <!-- Curvy dotted path with three bends -->
+  <path d="M 140 120 
+           C 220 40, 280 160, 320 70
+           C 60 220, 400 240, 540 100
+           C 160 160, 400 200, 540 400"
+        stroke="#ff3366"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="2 12"
+        stroke-dashoffset="1000"
+        fill="none"
+        class="animated-line"/>
+</svg>
+
+
+
+    <div class="portrait kamlesh">
+      <img src="Images/kam.jpeg" alt="Kamlesh">
+      <div class="name">Kamlesh</div>
+    </div>
+
+    <div class="caption">You Complete Me</div>
+  </div>
+</section>
+
+
+
+<!-- Sheet 8 (Grow Old Together) -->
+<section class="sheet" style="background:#fff;">
+  <div class="grow-old">
+    <img src="Images/fam.png" alt="Grow Old" class="grow-old-img">
+    <h2 class="grow-old-caption">I want to grow OLD with you</h2>
+  </div>
+</section>
+
+
+<!-- Sheet 9 (My Moon is You) -->
+<section class="sheet" style="background:#000; color:#fff;">
+  <div class="moon-love">
+    <div class="moon-graphic">
+      <!-- Crescent moon -->
+      <div class="moon"></div>
+    </div>
+    <div class="moon-caption">
+      This is the world's moon<br>
+      <span class="highlight">but my moon is YOU</span>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Sheet 10 (With Love Kamlesh) -->
+<section class="sheet" id="sheet10" style="background:linear-gradient(135deg,#ffe6f0,#ffccd9); text-align:center; padding:20px;">
+  
+  <!-- Heart SVG -->
+  <svg viewBox="0 0 600 400" width="250" height="200" style="display:block; margin:0 auto;">
+    <path d="
+      M 300 200
+      C 300 100, 150 100, 150 200
+      C 150 300, 300 350, 300 400
+      C 300 350, 450 300, 450 200
+      C 450 100, 300 100, 300 200
+    "
+      stroke="#ff3366"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-dasharray="1000"
+      stroke-dashoffset="1000"
+      fill="none"
+      class="animated-line2"/>
+  </svg>
+
+  <!-- Text and button -->
+  <div class="with-love">
+    <h1 class="love-text">With Love</h1>
+    <h2 class="name-text">Kamlesh</h2>
+    <button class="replay-btn go-first" id="go-first" onclick="
+      document.querySelector('.sheet').scrollIntoView({behavior:'smooth'});
+      document.getElementById('bg-music').play();
+    ">
+      ▶ Replay
+    </button>
+  </div>
+</section>
+
+
+
+
+
+
+<script>
+  // --- Fade-in observer for all sheets + special handling for Sheet 2 ---
+  const sheets = document.querySelectorAll('.sheet');
+  const sheet2 = sheets[1];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+
+        // Special handling for Sheet 2
+        if (entry.target === sheet2) {
+          entry.target.querySelectorAll('.animated-text, .sticky-img')
+            .forEach(el => {
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            });
+
+          // Continuously spawn butterflies every second
+          const interval = setInterval(() => spawnButterflies(entry.target, 5), 1000);
+
+          // Stop spawning when leaving Sheet 2
+          const stopObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if (!e.isIntersecting) {
+                clearInterval(interval);
+                stopObserver.disconnect();
+              }
+            });
+          });
+          stopObserver.observe(sheet2);
+        }
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sheets.forEach(sheet => observer.observe(sheet));
+
+  // --- Butterfly spawning function ---
+  function spawnButterflies(container, count=10) {
+    const directions = ['flyUp','flyRight','flyLeft'];
+    for (let i=0; i<count; i++) {
+      const b = document.createElement('div');
+      b.className = 'butterfly';
+      b.textContent = '🦋';
+      b.style.left = Math.random()*window.innerWidth + 'px';
+      b.style.top = (window.innerHeight-50) + 'px';
+      const dir = directions[Math.floor(Math.random()*directions.length)];
+      const duration = 5 + Math.random()*3;
+      b.style.animation = `flap 0.6s infinite alternate, ${dir} ${duration}s linear forwards`;
+      b.style.animationDelay = (Math.random()*2) + 's';
+      container.appendChild(b);
+      setTimeout(()=> b.remove(), (duration+2)*1000);
+    }
+  }
+
+// --- Love Tic-Tac-Toe Game (Sheet 3) ---
+const cells = document.querySelectorAll('#game-board .cell');
+let board = Array(9).fill('');
+let currentPlayer = '♥'; // start with hearts
+
+function checkWin(symbol) {
+  const wins = [
+    [0,1,2],[3,4,5],[6,7,8], // rows
+    [0,3,6],[1,4,7],[2,5,8], // columns
+    [0,4,8],[2,4,6]          // diagonals
+  ];
+  return wins.some(combo => combo.every(i => board[i] === symbol));
+}
+
+function checkDraw() {
+  return board.every(cell => cell !== '') &&
+         !checkWin('♥') &&
+         !checkWin('X');
+}
+
+function handleMove(index) {
+  if (board[index] !== '') return; // ignore filled cells
+
+  // Place symbol
+  board[index] = currentPlayer;
+  cells[index].textContent = currentPlayer;
+
+  // Check result
+  if (checkWin(currentPlayer)) {
+    showPopup(currentPlayer === '♥' ? 'win' : 'lose');
+    return;
+  }
+  if (checkDraw()) {
+    showPopup('draw');
+    return;
+  }
+
+  // Switch player
+  currentPlayer = currentPlayer === '♥' ? 'X' : '♥';
+}
+
+function showPopup(result) {
+  // Remove old popup/glitter
+  document.querySelectorAll('.popup,.glitter-bg').forEach(el => el.remove());
+
+  const gameSheet = document.querySelectorAll('.sheet')[2];
+
+  // Glitter background
+  const glitter = document.createElement('div');
+  glitter.className = 'glitter-bg';
+  for (let i=0; i<30; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.textContent = '✨';
+    s.style.left = Math.random()*100 + '%';
+    s.style.top = Math.random()*100 + '%';
+    glitter.appendChild(s);
+  }
+  gameSheet.appendChild(glitter);
+
+  // Popup
+  const popup = document.createElement('div');
+  popup.className = 'popup';
+
+  if (result === 'win') {
+    popup.innerHTML = `
+      <span class="highlight">Congratulations, you won my heart! 🎉</span><br>
+      My heart is yours forever.<br>
+<button id="play-again">
+  <img src="Images/ref.png" alt="Replay" style="width:24px; height:24px; vertical-align:middle;">
+  Play Again
+</button>
+    `;
+  } else if (result === 'lose') {
+    popup.innerHTML = `
+      <span class="highlight">Congratulations, I won your heart! 😉</span><br>
+      Your heart is mine now.<br>
+<button id="retry">
+  <img src="Images/ref.png" alt="Replay" style="width:24px; height:24px; vertical-align:middle;">
+  Play Again
+</button>
+    `;
+  } else if (result === 'draw') {
+    popup.innerHTML = `
+      <span class="highlight">It's a tie! 💕</span><br>
+      Our hearts are equally matched.<br>
+<button id="play-again">
+  <img src="Images/ref.png" alt="Replay" style="width:24px; height:24px; vertical-align:middle;">
+  Play Again
+</button>    `;
+  }
+
+  gameSheet.appendChild(popup);
+
+  // Button actions
+  const playAgainBtn = document.getElementById('play-again');
+  const retryBtn = document.getElementById('retry');
+  if (playAgainBtn) playAgainBtn.addEventListener('click', resetGame);
+  if (retryBtn) retryBtn.addEventListener('click', resetGame);
+}
+
+function resetGame() {
+  board = Array(9).fill('');
+  currentPlayer = '♥';
+  cells.forEach(cell => cell.textContent = '');
+  document.querySelectorAll('.popup,.glitter-bg').forEach(el => el.remove());
+}
+
+
+function computerMove() {
+  const emptyIndices = board.map((v,i) => v === '' ? i : null).filter(v => v !== null);
+  if (emptyIndices.length === 0) {
+    if (checkDraw()) showPopup('draw');
+    return;
+  }
+  const choice = emptyIndices[Math.floor(Math.random()*emptyIndices.length)];
+  board[choice] = 'X';
+  cells[choice].textContent = 'X';
+  cells[choice].classList.add('cross');
+
+  if (checkWin('X')) {
+    showPopup('lose');
+    cells.forEach(c => c.style.pointerEvents = 'none');
+  } else if (checkDraw()) {
+    showPopup('draw');
+    cells.forEach(c => c.style.pointerEvents = 'none');
+  }
+}
+
+cells.forEach((cell, i) => {
+  cell.addEventListener('click', () => {
+    if (board[i] !== '') return;
+    board[i] = '♥';
+    cell.textContent = '♥';
+    cell.classList.add('heart');
+
+    if (checkWin('♥')) {
+      showPopup('win');
+      cells.forEach(c => c.style.pointerEvents = 'none');
+    } else if (checkDraw()) {
+      showPopup('draw');
+      cells.forEach(c => c.style.pointerEvents = 'none');
+    } else {
+      computerMove();
+    }
+  });
+});
+
+function resetGame() {
+  board.fill('');
+  cells.forEach(c => { 
+    c.textContent = ''; 
+    c.classList.remove('heart','cross'); 
+    c.style.pointerEvents = 'auto'; 
+  });
+  document.querySelectorAll('.popup,.glitter-bg').forEach(el => el.remove());
+}
+
+
+ // --- Bee (Sheet 6) ---
+
+window.addEventListener('load', () => {
+  const firstSheet = document.querySelector('.sheet');
+  firstSheet.classList.add('in-view');
+});
+
+
+
+
+ // --- line (Sheet 7) ---
+document.addEventListener("DOMContentLoaded", () => {
+  const line = document.querySelector(".animated-line");
+
+  // Calculate exact path length so dasharray matches
+  const length = line.getTotalLength();
+  line.style.strokeDasharray = length;
+  line.style.strokeDashoffset = length;
+
+  // Observe when the SVG enters the viewport
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        line.classList.add("animate-line");
+        observer.unobserve(line); // run only once
+      }
+    });
+  }, { threshold: 0.5 }); // trigger when 50% visible
+
+  observer.observe(line);
+});
+
+
+ // --- (Sheet 8 fam) ---
+
+document.addEventListener("DOMContentLoaded", () => {
+  const line = document.querySelector(".animated-line");
+  const length = line.getTotalLength();
+  line.style.strokeDasharray = length;
+  line.style.strokeDashoffset = length;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        line.classList.add("animate-line");
+        observer.unobserve(line); // run once
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(line);
+});
+
+
+ // --- (Sheet 9 moon) ---
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sheet9 = document.querySelector(".moon-love");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sheet9.classList.add("fade-in");
+        observer.unobserve(sheet9);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(sheet9);
+});
+
+
+ // --- (Sheet 10 end with love) ---
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sheet10 = document.querySelector(".with-love");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sheet10.classList.add("animate");
+        observer.unobserve(sheet10);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(sheet10);
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const button = document.getElementById("go-first");
+  const firstSheet = document.querySelector(".sheet");
+
+  button.addEventListener("click", () => {
+    // Scroll smoothly to the first sheet
+    firstSheet.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Always reload after a short delay
+    setTimeout(() => {
+      location.reload();
+    }, 1200); // delay matches scroll duration
+  });
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bg-music");
+
+  // Play music when user clicks anywhere
+  document.body.addEventListener("click", () => {
+    audio.play().catch(err => {
+      console.log("Autoplay blocked until click:", err);
+    });
+  }, { once: true }); // runs only once
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sheet10 = document.getElementById("sheet10");
+  const heartPath = sheet10.querySelector(".animated-line2");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        heartPath.classList.add("active"); // start animation
+      }
+    });
+  }, { threshold: 0.5 }); // trigger when 50% visible
+
+  observer.observe(sheet10);
+});
+
+
+</script>
+
+
+
+</body>
+</html>
