@@ -434,7 +434,6 @@
   font-family: 'Edwardian Script ITC', cursive;
   text-align: center;
   padding: 60px 20px;
-    overflow: visible;     /* don’t clip extra text */
 }
 
 .love-text {
@@ -454,14 +453,6 @@ font-family: 'Edwardian Script ITC', cursive;
   font-weight: normal;   /* removes bold look */
   animation: fadeInUp 4s ease forwards;
 }
-
-    .name-text {
-  display: block;        /* ensure each h2 shows on its own line */
-  margin: 10px 0;        /* add spacing between lines */
-  color: #ff3366;        /* pick a visible color */
-  font-size: 24px;       /* adjust size */
-}
-
 
 .replay-btn {
   background: #d6336c;
@@ -682,8 +673,7 @@ font-family: 'Edwardian Script ITC', cursive;
   <!-- Text and button -->
   <div class="with-love">
     <h1 class="love-text">With Love</h1>
-    <h2 class="name-text">Kamlesh</h2>
-    <h2 class="name-text">Ur Future Husband</h2>
+    <h2 class="name-text">Ur Kamlesh</h2>
     <button class="replay-btn go-first" id="go-first" onclick="
       document.querySelector('.sheet').scrollIntoView({behavior:'smooth'});
       document.getElementById('bg-music').play();
