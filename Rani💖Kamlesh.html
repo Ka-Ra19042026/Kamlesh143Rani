@@ -434,6 +434,7 @@
   font-family: 'Edwardian Script ITC', cursive;
   text-align: center;
   padding: 60px 20px;
+    overflow: visible;     /* don’t clip extra text */
 }
 
 .love-text {
@@ -451,8 +452,16 @@ font-family: 'Edwardian Script ITC', cursive;
   color: #003366; /* deep blue */
   margin-bottom: 20px;
   font-weight: normal;   /* removes bold look */
-  animation: fadeInUp 2s ease forwards;
+  animation: fadeInUp 4s ease forwards;
 }
+
+    .name-text {
+  display: block;        /* ensure each h2 shows on its own line */
+  margin: 10px 0;        /* add spacing between lines */
+  color: #ff3366;        /* pick a visible color */
+  font-size: 24px;       /* adjust size */
+}
+
 
 .replay-btn {
   background: #d6336c;
